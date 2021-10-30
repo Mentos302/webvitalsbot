@@ -35,15 +35,21 @@ class AccountControllers {
     try {
       filePath = await AppController.getReportByURL(url)
 
-      console.log(filePath)
       if (filePath) {
         await ctx.scene.leave()
 
         await ctx.reply(`✅ Ваш отчёт <b>готов!</b>`, Extra.HTML())
 
-        await ctx.replyWithDocument({
-          source: filePath,
-        })
+        await ctx.replyWithDocument(
+          {
+            source: filePath,
+          },
+          Extra.markup((m) =>
+            m.inlineKeyboard([
+              [m.callbackButton(`📝 Получить новый отчёт`, 'rndmsht')],
+            ])
+          )
+        )
 
         fs.unlinkSync(filePath)
       } else {
