@@ -30,7 +30,9 @@ class BrowserService {
       let page = await browser.newPage()
 
       const navigationPromise = page.waitForNavigation()
-      await page.goto('https://accounts.google.com')
+      await page.goto(
+        'https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=https%3A%2F%2Fg.co%2Fchromeuxdash&access_type=offline&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&response_type=code&client_id=663961063546-68vqpv1u8qaa425aounj92tdvfemlojp.apps.googleusercontent.com'
+      )
 
       await navigationPromise
 
