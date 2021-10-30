@@ -26,6 +26,7 @@ bot.use(rateLimit(limitConfig))
 
 sceneInitialisation(bot)
 
+bot.action('rndmsht', (ctx) => ctx.scene.enter('urlrequest'))
 bot.use((ctx) => ctx.scene.enter('welcome'))
 
 module.exports = bot
