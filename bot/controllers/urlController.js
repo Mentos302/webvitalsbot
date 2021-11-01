@@ -43,6 +43,7 @@ class AccountControllers {
         await ctx.replyWithDocument(
           {
             source: filePath,
+            filename: url,
           },
           Extra.markup((m) =>
             m.inlineKeyboard([
