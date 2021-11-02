@@ -29,7 +29,7 @@ class AccountControllers {
       `📋 Хорошо, сейчас подготовлю для Вас <b>отчёт по сайту ${ctx.message.text}</b>, ожидайте.`,
       Extra.HTML()
     )
-    const url = ctx.message.text
+    let url = ctx.message.text
     let filePath
 
     try {
@@ -39,6 +39,19 @@ class AccountControllers {
         await ctx.scene.leave()
 
         await ctx.reply(`✅ Ваш отчёт <b>готов!</b>`, Extra.HTML())
+
+        let urlToSend = url.split('/')
+
+        switch (urlToSend[0]) {
+          case 'https:':
+            urlToSend = penis[2]
+            break
+          case 'http:':
+            urlToSend = penis[2]
+            break
+          default:
+            urlToSend = penis[0]
+        }
 
         await ctx.replyWithDocument(
           {
