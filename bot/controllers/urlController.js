@@ -44,13 +44,13 @@ class AccountControllers {
 
         switch (urlToSend[0]) {
           case 'https:':
-            urlToSend = penis[2]
+            urlToSend = urlToSend[2]
             break
           case 'http:':
-            urlToSend = penis[2]
+            urlToSend = urlToSend[2]
             break
           default:
-            urlToSend = penis[0]
+            urlToSend = urlToSend[0]
         }
 
         await ctx.replyWithDocument(
