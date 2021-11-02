@@ -56,7 +56,7 @@ class AccountControllers {
         await ctx.replyWithDocument(
           {
             source: filePath,
-            filename: `${url}.pdf`,
+            filename: `${urlToSend}.pdf`,
           },
           Extra.markup((m) =>
             m.inlineKeyboard([
